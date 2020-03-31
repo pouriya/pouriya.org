@@ -1,12 +1,7 @@
-
-https://pouriya.org {
-	tls {$CADDY_POURIYA_CERT_FULLCHAIN} {$CADDY_POURIYA_PRIVKEY}
-	redir https://pouriya.org/fa{uri}
-}
-
 https://pouriya.org/fa {
 	tls {$CADDY_POURIYA_CERT_FULLCHAIN} {$CADDY_POURIYA_PRIVKEY}
 	root {$DEST_DIR}/fa
+	log / stdout
 	log / "{$CADDY_POURIYA_LOG_FA}" "{proto} {remote} {method} {path} {>User-Agent}" {
 		rotate_size     10
 		rotate_age      7
@@ -18,6 +13,7 @@ https://pouriya.org/fa {
 https://pouriya.org/en {
 	tls {$CADDY_POURIYA_CERT_FULLCHAIN} {$CADDY_POURIYA_PRIVKEY}                  
 	root {$DEST_DIR}/en
+	log / stdout
 	log / "{$CADDY_POURIYA_LOG_EN}" "{proto} {remote} {method} {path} {>User-Agent}" {
 		rotate_size     10
 		rotate_age      7
@@ -26,6 +22,14 @@ https://pouriya.org/en {
 	}
 }
 
+
+https://pouriya.org {
+        tls {$CADDY_POURIYA_CERT_FULLCHAIN} {$CADDY_POURIYA_PRIVKEY}
+        redir https://pouriya.org/fa{uri}
+}
+
 http://pouriya.org {
   redir https://{host}{uri}
 }
+
+
