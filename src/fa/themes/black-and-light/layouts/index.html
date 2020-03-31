@@ -1,0 +1,27 @@
+{{ partial "header.html" . }}
+<br/>
+<div id=date>
+  <p style="text-align:center">{{ .Site.Params.desc }}</p>
+</div>
+<section id=nav>
+  <ul>
+    {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL }}" target="_blank">{{ .Name }}</a></li>
+    {{ end }}
+  </ul>
+</section>
+<section style="text-align:center" id=content>
+  <h1>فهرست مطالب وبلاگ<h1/>
+  <ul class=posts_listing>
+    {{ range where .Pages.ByPublishDate "Title" "not in" (slice "درباره من") }}
+      <li>
+        <h3>
+          <a href="{{ .Permalink }}" target="_blank">{{ .Title }}</a>
+        </h3>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+
+{{ partial "footer.html" . }}
+

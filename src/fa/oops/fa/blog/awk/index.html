@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="fa-IR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="https://pouriya.org/fa/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://pouriya.org/fa/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://pouriya.org/fa/favicon_128x128.png" sizes="128x128">
+
+    <title>
+      
+      
+         AWK 
+      
+    </title>
+    <link rel="canonical" href="https://pouriya.org/fa/blog/awk/">
+    
+      <meta property="og:title" name="og:title" content="AWK" />
+    
+    <meta property="og:type" name="og:type" content="article" />
+    <meta property="og:url" name="og:url" content="https://pouriya.org/fa/blog/awk/" />
+    <meta property="og:locale" name="og:locale" content="fa_IR" />
+    <meta property="og:site_name" name="og:site_name" content="وبلاگ پوریا جهانبخش" />
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:100%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: black;
+    text-decoration-skip: ink;
+    font-family: Vazir,roboto;
+  }
+
+  body {
+    font-size:17px;
+    line-height:160%;
+    color:#1d1313;
+    max-width:850px;
+    margin:auto;
+    text-align: right;
+  }
+
+  p {
+    direction: rtl;
+    list-style-type: persian;
+    margin: 20px 0 !important;
+        margin-top: 20px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+    box-sizing: border-box;
+    color: #4a4a4a;
+    line-height: 2;
+    font-size: 1.1rem;
+    letter-spacing: 0;
+    text-rendering: optimizeLegibility;
+    word-wrap: break-word;
+        overflow-wrap: break-word;    
+    text-align:justify;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  }
+
+  strong {
+    font-weight:600;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:22px;
+    margin-top:18px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    margin-left: 5px;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+  ul li:before {
+    content:"\00BB \0020";
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    margin-bottom: 1rem;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content h2 {
+    font-size:25px;
+  }
+
+  #content .entry-content {
+    margin-top:15px;
+  }
+
+  #content time {
+    margin-left:3px;
+  }
+
+  #content h1 {
+    font-size:30px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 25px 15px;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:25px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:20px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+
+@font-face {
+    font-family: Vazir;
+    src: url('/fonts/vazir/Vazir.eot');
+    src: url('/fonts/vazir/Vazir.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/vazir/Vazir.woff2') format('woff2'),
+         url('/fonts/vazir/Vazir.woff') format('woff'),
+         url('/fonts/vazir/Vazir.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('/fonts/vazir/Vazir-Bold.eot');
+    src: url('/fonts/vazir/Vazir-Bold.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/vazir/Vazir-Bold.woff2') format('woff2'),
+         url('/fonts/vazir/Vazir-Bold.woff') format('woff'),
+         url('/fonts/vazir/Vazir-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('/fonts/vazir/Vazir-Black.eot');
+    src: url('/fonts/vazir/Vazir-Black.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/vazir/Vazir-Black.woff2') format('woff2'),
+         url('/fonts/vazir/Vazir-Black.woff') format('woff'),
+         url('/fonts/vazir/Vazir-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('/fonts/vazir/Vazir-Medium.eot');
+    src: url('/fonts/vazir/Vazir-Medium.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/vazir/Vazir-Medium.woff2') format('woff2'),
+         url('/fonts/vazir/Vazir-Medium.woff') format('woff'),
+         url('/fonts/vazir/Vazir-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('/fonts/vazir/Vazir-Light.eot');
+    src: url('/fonts/vazir/Vazir-Light.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/vazir/Vazir-Light.woff2') format('woff2'),
+         url('/fonts/vazir/Vazir-Light.woff') format('woff'),
+         url('/fonts/vazir/Vazir-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('/fonts/vazir/Vazir-Thin.eot');
+    src: url('/fonts/vazir/Vazir-Thin.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/vazir/Vazir-Thin.woff2') format('woff2'),
+         url('/fonts/vazir/Vazir-Thin.woff') format('woff'),
+         url('/fonts/vazir/Vazir-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+</style>
+
+
+  </head>
+
+  <body>
+    <section id=nav>
+      <h2><bold><a style="font-family: 'Inconsolata', Courier;" href="https://pouriya.org/fa/">&lt;Pouriya Jahanbakhsh/&gt;</a></bold></h2>
+    </section>
+
+
+<section id=content>
+  <h1> AWK </h1>
+
+  
+
+  <div class="entry-content">
+    
+
+<p>حتما براتون پیش اومده که در اسکریپت های شل در سیستم عامل های شبه یونیکس دستور awk رو دیده باشید. Awk یه دستور ساده مثل ls یا mv یا cp نیست. awk در واقع یک زبان اسکریپتی دیتاگراست و این دستور اسکریپت هایی که به زبان awk نوشته شدن رو اجرا میکنه. بصورت خیلی ساده awk یک استریمی از دیتا رو میخونه و طبق یک سری پترن که براش تعریف کردیم (و اختیاری هستن) قسمت های مورد نیاز ما از اون دیتا رو استخراج میکنه. در این پست قراره یه دید هلیکوپتری به awk داشته باشیم.</p>
+
+<h3 id="awk-scripting">awk scripting</h3>
+
+<p>در حالت پیشفرض awk منتظره در ورودی (standard input) بهش دیتا بدید تا پردازش کنه. معمولا با عملگر پایپ یا | در شل این کار رو انجام میدن. خوب گفتیم که awk طبق یک یا چند پترن که بهش داده میشه دیتا ورودی رو پردازش میکنه. ساختار این پترن و عبارات پردازش بشکل زیره:</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">pattern(s) { expression(s) }</code></pre></div>
+
+<p>البته هر دو اختاری هستن. برای مثال من ورودی foo bar baz رو به awk بدون پترن و عبارت میدم:</p>
+
+<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ echo foo bar baz | awk <span style="font-style:italic">&#39;&#39;</span>
+/p/awk $ </code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ echo foo bar baz | awk <span style="font-style:italic">&#39;{}&#39;</span>
+/p/awk $ </code></pre></div></p>
+
+<p>و اونم برام هیچ‌کاری نکرد!</p>
+
+<p><img src="https://pouriya.org/fa/blog/images/pouriya.org-awk-01.jpeg" alt="fuck you" /></p>
+
+<p>وقتی awk دیتا رو از ورودی میخونه همین که یک خط از دیتا کامل شد (به کاراکتر خط جدید رسید)، بصورت پیشفرض با استفاده از کاراکتر های فضای‌خالی (اسپیس و یا تب) بقیه ی کاراکتر های اون خط رو از هم جدا میکنه و بعد به ترتیب مقدارشون رو در 1$ تا n$ میریزه. سپس پترن های ما رو به ترتیب چک میکنه و اگر پترنی وجود داشت، شرط یا شروط اون پترن رو چک میکنه و در صورت گذر از شرط و شروطش، بدنه ی اون پترن رو اجرا میکنه و اگر هم شرطی وجود نداشت فقط بدنه رو اجرا میکنه.<br />
+برای مثال وقتی مقدار foo bar baz رو بهش میدم، خود دستور echo آخر اینا یه کاراکتر خط جدید میذاره. وقتی awk این خط رو جدا میکنه با استفاده از کاراکتر های فضای خالی بقیه ی کاراکتر هارو هم جدا میکنه که در نهایت میشن ۳ کلمه ی foo bar baz و foo میشه 1$، bar میشه 2$ و baz میشه 3$:</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ echo foo bar baz | awk <span style="font-style:italic">&#39;{print $3 $2 $1}&#39;</span>
+bazbarfoo</code></pre></div>
+
+<p>همونطور که دیدین با استفاده از دستور print تونستم به ترتیب سومین و دومین و اولین پارامتر های ورودی رو چاپ کنم. برای مثال به خروجی دستور ps -u در سیستم من توجه کنید:</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ ps -u
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+pouriya  28773  0.0  0.0  24352  5656 pts/1    Ss   Jul23   0:00 bash
+pouriya  28795  0.9  0.0  28152  4580 pts/1    S+   Jul23   0:38 htop
+pouriya  28951  0.0  0.0  24400  5876 pts/2    Ss   Jul23   0:00 bash
+pouriya  28970  0.0  0.3 126436 43244 pts/2    Sl+  Jul23   0:01 hugo server
+pouriya  29017  0.0  0.0  24428  5684 pts/3    Ss+  Jul23   0:00 bash
+pouriya  29123  0.9  0.4 666804 50400 pts/3    Sl   Jul23   0:36 xed content/blog/awk.md
+pouriya  29765  0.0  0.0  24400  5652 pts/4    Ss   Jul23   0:00 bash
+pouriya  30187  0.0  0.0  38904  3608 pts/4    R+   00:14   0:00 ps -u</code></pre></div>
+
+<p>اگر بخوام با استفاده از awk فقط اسم دستورات (که آخرین قسمت از هر خط هست) رو نشون بدم باید چیکار کنم؟ با توجه به توضیحات بالام درباره تقسیم هر خط به قسمت های کوچکتر، من قسمت یازدهم رو میخوام. پس:</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ ps -u | awk <span style="font-style:italic">&#39;{print $11}&#39;</span>
+COMMAND
+bash
+htop
+bash
+hugo
+bash
+xed
+bash
+ps
+awk</code></pre></div>
+
+<p>یه چیزی اینجا اضافس! چون زمان پایپ کردن دیتا هر دو برنامه با هم اجرا میشن، خود awk هم در این لیست هست. برای حذف از یک پترن استفاده میکنم:</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ ps -u | awk <span style="font-style:italic">&#39;$11 != &#34;awk&#34; {print $11}&#39;</span>
+COMMAND
+bash
+htop
+bash
+hugo
+bash
+xed
+bash
+ps</code></pre></div>
+
+<p>اگر یه کم سخت گیر تر باشیم خود ps هم اضافس:</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ ps -u | awk <span style="font-style:italic">&#39;$11 != &#34;awk&#34; &amp;&amp; $11 != &#34;ps&#34; {print $11}&#39;</span>
+COMMAND
+bash
+htop
+bash
+hugo
+bash
+xed
+bash</code></pre></div>
+
+<p>و اگر بخوایم شور سختگیری رو در بیاریم کلمه COMMAND که به عنوان اسم فیلد توسط خود ps در خط اول نوشته شده هم اضافس. اما نمیتونم بیام کلمه COMMAND رو هم به شرط اضافه کنم، چرا؟ چون شور سختگیری رو در اوردم و ممکنه واقعا دستوری به نام COMMAND در خط های بعدی باشه و بهتره بگیم فقط خط اول اضافس!</p>
+
+<p><img src="https://pouriya.org/fa/blog/images/pouriya.org-awk-02.jpeg" alt="cry" /></p>
+
+<p>برای این کار میتونم از متغیر NR استفاده کنم. awk عدد خط رو در این متغیر میریزه و هر بار به خط بعدی میره آپدیتش میکنه:</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ ps -u | awk <span style="font-style:italic">&#39;$11 != &#34;awk&#34; &amp;&amp; $11 != &#34;ps&#34; &amp;&amp;  NR &gt; 1 {print $11}&#39;</span>
+bash
+htop
+bash
+hugo
+bash
+xed
+bash</code></pre></div>
+
+<p>به جای داشتن یک پترن با شروط طول و دراز میتونیم چند تا پترن داشته باشیم. awk عزیز هم از بالا به پایین چکشون میکنه:</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ ps -u | awk <span style="font-style:italic">&#39;NR == 1 {next} $11 == &#34;awk&#34; {next} $11 == &#34;ps&#34; {next} {print $11}&#39;</span>
+bash
+htop
+bash
+hugo
+bash
+xed
+bash</code></pre></div>
+
+<p>خوب اینجا با استفاده از دستور next در سه پترن اول بهش گفتم این خط رو بیخیال شو برو خط بعدی! همچین اسکریپی یه کم میتونه نا خوانا باشه. میتونیم اسکریپت awk رو در یک فایل ذخیره کنیم و با استفاده از f- به awk بگیم اجراش کن. پس من در فایل my-ps-parser.awk ذخیرش کردم و نسخه جدید خوانا تر شده:</p>
+
+<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ cat my-ps-parser.awk</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">NR == 1 {
+  <span style="font-weight:bold">next</span>
+}
+
+$11 == <span style="font-style:italic">&#34;awk&#34;</span> {
+  <span style="font-weight:bold">next</span>
+}
+
+$11 == <span style="font-style:italic">&#34;ps&#34;</span> {
+  <span style="font-weight:bold">next</span>
+}
+
+{<span style="font-weight:bold">print</span> $11}</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ ps -u | awk -f my-ps-parser.awk 
+bash
+htop
+bash
+hugo
+bash
+xed
+bash</code></pre></div></p>
+
+<p>همچنین در awk میتونیم if یا for داشته باشیم و یا از regex در پترن ها استفاده کنیم. یه سری توابع آماده برای کار با رشته ها هم داره و میتونیم خودمون هم تابع تریف کنیم. اگر به اسکریپت نویسی و جینگولک بازی علاقه مند هستین حتما بیشتر درباره awk یاد بگیرید.</p>
+
+<h3 id="یه-کار-خفن-تر">یه کار خفن تر</h3>
+
+<p>من دیتای صفحه html سایت time.ir رو گرفتم و در فایل time.ir.html ذخیره کردم</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ ls -lh time.ir.html 
+-rw-r--r-- 1 pouriya pouriya 71K Jul 24 01:02 time.ir.html</code></pre></div>
+
+<p>و همونطور که میبینید حجمش ۷۱ کیلوبایت شده. قراره مناسبت های این ماه رو ازش بکشم بیرون!</p>
+
+<p><img src="https://pouriya.org/fa/blog/images/pouriya.org-awk-03.jpeg" alt="holy shit" /></p>
+
+<p>این بخش دیگه جزوی از اموزش نیست و از ابتدا هم قرار نبود همه فیچر های awk رو در این پست آموزش بدم. بنابراین فقط داخل اسکریپت یه کوچولو براتون کامنت گذاشتم.</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-awk" data-lang="awk">BEGIN {
+  <span style="font-style:italic"># This is a comment</span>
+  <span style="font-style:italic"># This block will be evaluated before processing data</span>
+
+  FS = <span style="font-style:italic">&#34;[&lt;&gt;\&#34;]&#34;</span> <span style="font-style:italic"># Do&#39;nt want to split line using white spaces. Want to split it with &lt;, &gt; and &#34;</span>
+
+  should_print = 0
+  should_print_next_line = 0
+}
+
+$2 == <span style="font-style:italic">&#34;span&#34;</span> &amp;&amp; $4 == <span style="font-style:italic">&#34;span&#34;</span> {
+  should_print = 1
+  <span style="font-weight:bold">next</span>
+}
+
+should_print == 1 &amp;&amp; $2 == <span style="font-style:italic">&#34;/ul&#34;</span> {
+  <span style="font-weight:bold">exit</span>
+}
+
+should_print == 1 &amp;&amp; $2 == <span style="font-style:italic">&#34;span id=&#34;</span> {
+  should_print_next_line = 1
+  <span style="font-weight:bold">next</span>
+}
+
+should_print_next_line == 1 {
+  <span style="font-weight:bold">print</span> $0
+  should_print_next_line = 0
+  <span style="font-weight:bold">next</span>
+}</code></pre></div>
+
+<p>این اسکریپت رو در فایل time.ir.awk ذخیره کردم وبعد از یه کم ور رفتن با اون فایل تستی نتیجه درست رو داد و میخوام خروجیش رو با ریختن دیتای مستقیم از curl بهتون نشون بدم:</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/p/awk $ curl <span style="font-weight:bold;font-style:italic">\
+</span><span style="font-weight:bold;font-style:italic"></span>&gt; -H <span style="font-style:italic">&#34;User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:67.0) Gecko/20100101 Firefox/67.0&#34;</span> <span style="font-weight:bold;font-style:italic">\
+</span><span style="font-weight:bold;font-style:italic"></span>&gt;  https://www.time.ir <span style="font-weight:bold;font-style:italic">\
+</span><span style="font-weight:bold;font-style:italic"></span>&gt; 2&gt;/dev/null <span style="font-weight:bold;font-style:italic">\
+</span><span style="font-weight:bold;font-style:italic"></span>&gt; | awk -f time.ir.awk
+
+                            روز ترویج آموزش های فنی و حرفه ای
+                            مرداد روز،جشن مردادگان
+                            روز بزرگداشت شیخ شهاب الدین سهروردی
+                            جشن چله تابستان
+                            آغاز هفته جهانی شیردهی
+                            شهادت امام محمد تقی علیه السلام
+                            صدور فرمان مشروطیت
+                            روز خبرنگار
+                            شهادت امام محمد باقر علیه السلام
+                            روز عرفه
+                            عید سعید قربان
+                            روز جهانی چپ دست ها
+                            ولادت امام علی النقی الهادی علیه السلام
+                            سالروز ورود آزادگانِ سرافراز به وطن
+                            سالروز کودتای 28 مرداد علیه دولت دکتر محمد مصدق
+                            سالروز فاجعه آتش زدن سینما رکس آبادان
+                            روز جهانی عکاسی
+                            عید سعید غدیر خم
+                            ولادت امام موسی کاظم علیه السلام</code></pre></div>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"></code></pre></div>
+
+  </div>
+
+  <div style="text-align: left;" id=links>
+    
+      <a class="basic-alignment left" href="https://pouriya.org/fa/blog/bash-completion/">&laquo; bash completion</a>
+    
+    
+      <a class="basic-alignment left" href="https://pouriya.org/fa/blog/becoming-a-kickass-coder/">چطوری یه برنامه‌نویس (خفن) بشیم؟ ۱ &raquo;</a>
+    
+  </div>
+</section>
+
+  <p style="text-align:center">اگر پیشنهاد یا انتقادی دارید از <a href="https://twitter.com/mr_pouriya/status/1153794337097912326">این لینک</a> در توییتر استفاده کنید</p>
+
+  <footer>
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142568701-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+    <br/><p style="text-align:center; font-size: 14px; color:#696969">۲۰۱۹ © پوریا جهانبخش ⦁ این سایت <b><a href="https://github.com/pouriya-jahanbakhsh/pouriya.org" target="_blank" style="color:#2666C1">متن‌باز</a></b> است</p><br/>
+  </footer>
+</body>
+
+</html>
+
+
+

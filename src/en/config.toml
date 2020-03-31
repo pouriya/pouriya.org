@@ -1,0 +1,20 @@
+languageCode = "en-US"
+copyRight = "2019 © Pouriya Jahanbakhsh"
+
+[params]
+  sitename = "Pouriya"
+  disableWebFonts = false
+  siteGitURL = "https://github.com/pouriya-jahanbakhsh/pouriya.org"
+  desc = "A person who writes computer code"
+
+[[menu.main]]
+    name = "About"
+    url  = "/about"
+
+[[menu.main]]
+    name = "DONATE"
+    url  = "https://idpay.ir/codefather"
+
+[[menu.main]]
+    name = "<fa/>"
+    url  = "BASEURL/fa"

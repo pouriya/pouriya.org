@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+
+<section id=content>
+  <ul class=posts_listing>
+    {{ range where .Pages.ByPublishDate "Title" "not in" (slice "About" "Contributions" "OSS") }}
+      <br/>
+      <br/>
+      <li>
+        <h2><a href="{{ .Permalink }}" target="_blank">{{ .Title }}</a></h2>
+        <div id=date>
+          <time>{{ .Date.Format (.Site.Params.dateform | default "January 2006") }} ⦁ {{ .ReadingTime }} minute read</time>
+        </div>
+        <div class="entry-content">
+          <p>{{slicestr .Summary }} ... <b>[<a href="{{ .Permalink }}" target="_blank" style="color:#204A87">Read more</a>]</b></p>
+        </div>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+
+{{ partial "footer.html" . }}
+

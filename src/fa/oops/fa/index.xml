@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pouriya Jahanbakhsh</title>
+    <link>https://pouriya.org/fa/</link>
+    <description>Recent content on Pouriya Jahanbakhsh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fa-IR</language>
+    <copyright>۲۰۱۹ © پوریا جهانبخش</copyright>
+    <lastBuildDate>Fri, 21 Jun 2019 00:00:05 +0000</lastBuildDate>
+    
+	<atom:link href="https://pouriya.org/fa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>چطوری یه برنامه‌نویس (خفن) بشیم؟ ۱</title>
+      <link>https://pouriya.org/fa/blog/becoming-a-kickass-coder/</link>
+      <pubDate>Fri, 21 Jun 2019 00:00:05 +0000</pubDate>
+      
+      <guid>https://pouriya.org/fa/blog/becoming-a-kickass-coder/</guid>
+      <description>پیشگفتار قبل از نوشتن این پست در گوگل سرچ کردم و چندین پست دیگه با مضمون مرتبط رو خوندم و واقعا حس کردم نظر شخصی من با بقیه دوستان بعضی جاها فرق داره! اینه که تضمین میکنم بعضی از مطالب تکراری نباشه (و صد البته تضمین نمیکنم نظر شخصیم درست باشه).
+این سری پست ها به درد کیا میخوره؟ ۱. کسانی که صفر کیلومتر هستند. مثلا فقط میدونن برنامه‌نویس ها با استفاده از زبان های برنامه‌نویسی و &amp;hellip; برای کامپیوتر برنامه درست میکنن.</description>
+    </item>
+    
+    <item>
+      <title>AWK</title>
+      <link>https://pouriya.org/fa/blog/awk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pouriya.org/fa/blog/awk/</guid>
+      <description>حتما براتون پیش اومده که در اسکریپت های شل در سیستم عامل های شبه یونیکس دستور awk رو دیده باشید. Awk یه دستور ساده مثل ls یا mv یا cp نیست. awk در واقع یک زبان اسکریپتی دیتاگراست و این دستور اسکریپت هایی که به زبان awk نوشته شدن رو اجرا میکنه. بصورت خیلی ساده awk یک استریمی از دیتا رو میخونه و طبق یک سری پترن که براش تعریف کردیم (و اختیاری هستن) قسمت های مورد نیاز ما از اون دیتا رو استخراج میکنه.</description>
+    </item>
+    
+    <item>
+      <title>bash completion</title>
+      <link>https://pouriya.org/fa/blog/bash-completion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pouriya.org/fa/blog/bash-completion/</guid>
+      <description>احتمالا توی لینوکس (که اکثرا شل پیشفرضش bash هست) براتون پیش اومده که وقتی یک دستوری رو مینویسید و بعدش دکمه TAB رو میزنید یک سری از پارامتر های مورد قبول اون برنامه رو بهتون پیشنهاد میده. برای مثال وقتی مینویسم git و دکمه TAB رو میزنم مقادیر زیر رو بهم پیشنهاد میده
+/p/bash-completion $ git add format-patch remote am fsck repack annotate gc replace apply get-tar-commit-id request-pull archive grep reset bisect help revert blame imap-send rm branch init shortlog bundle instaweb show checkout interpret-trailers show-branch cherry log stage cherry-pick merge stash clean mergetool status clone mv submodule commit name-rev subtree config notes tag describe pull verify-commit diff push whatchanged difftool rebase worktree fetch reflog filter-branch relink در این پست قراره یه کوچولو یاد بگیریم چطور در bash این اتفاق میفته و یه کوچولو هم یاد میگیریم چطور برای برنامه های خودمون bash completion بنویسیم.</description>
+    </item>
+    
+  </channel>
+</rss>

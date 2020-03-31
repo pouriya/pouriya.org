@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="https://pouriya.org/en/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://pouriya.org/en/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://pouriya.org/en/favicon_128x128.png" sizes="128x128">
+
+    <title>
+      
+      
+         Erlang behaviors in Python 
+      
+    </title>
+    <link rel="canonical" href="https://pouriya.org/en/posts/erlang-behaviors-in-python/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:100%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: black;
+    text-decoration-skip: ink;
+  }
+
+  body {
+    font-family:'Open Sans', 'Myriad Pro', Myriad, sans-serif;
+    font-size:17px;
+    line-height:160%;
+    color:#1d1313;
+    max-width:850px;
+    margin:auto;
+  }
+
+  p {
+    position: relative;
+    top: 20px;
+    font-family: 'Inconsolata', Courier;
+    font-size: 18px;
+    line-height: 1.3;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+        overflow-wrap: break-word;
+    margin-bottom: 10px;
+    margin: 0;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    text-rendering: optimizeLegibility;
+    text-align:justify
+  }
+  
+  
+  a {
+      font-family: 'Inconsolata', Courier;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  }
+
+  .heading,.serif,h1,h2,h3 {
+    font-family: 'Inconsolata', Courier;
+  }
+
+  strong {
+    font-weight:600;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:22px;
+    margin-top:18px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    margin-left: 5px;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+  ul li:before {
+    content:"\00BB \0020";
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content h2 {
+    font-size:25px;
+  }
+
+  #content .entry-content {
+    margin-top:15px;
+  }
+
+  #content time {
+    margin-left:3px;
+  }
+
+  #content h1 {
+    font-size:30px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 25px 15px;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:25px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:20px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+  </head>
+
+  <body>
+    <section id=nav>
+      <h2><b><a style="font-family: 'Inconsolata', Courier;" href="https://pouriya.org/en/">&lt;CodeFather/&gt;</a></b></h2>
+      <ul>
+        
+          <li><a href="https://pouriya.org/en/about" target="_blank">About</a></li>
+        
+          <li><a href="https://pouriya.org/en/contributions" target="_blank">Contributions</a></li>
+        
+          <li><a href="https://idpay.ir/codefather" target="_blank">DONATE</a></li>
+        
+          <li><a href="https://pouriya.org/en/oss" target="_blank">OSS</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> Erlang behaviors in Python </h1>
+
+  
+    <div id=sub-header>
+      November 2019 ⦁ 5 minute read
+    </div>
+  
+
+  <div class="entry-content">
+    
+
+<p>Since python is an OOP (<a href="https://en.wikipedia.org/wiki/Object-oriented_programming"><strong>Object Oriented Programming</strong></a>) language; As a Python programmer you often work with classes, objecst, inheritance, etc and they make sense to you. But what happens when you start coding in a pure functional programming language like Erlang? One important problem is that you don&rsquo;t see <code>class</code> keyword or something like that to implement your own abstraction layers. So how do Erlangers separate generic parts of code from specefic parts? The answer is Erlang/OTP behaviors.</p>
+
+<p><br/></p>
+
+<h1 id="digging-into-behaviors">Digging into behaviors</h1>
+
+<p>According to <a href="http://erlang.org/doc/design_principles/des_princ.html#behaviours"><strong>Erlang/OTP documentation</strong></a>:<br />
+<italic>Behaviours are formalizations of common patterns. The idea is to divide the code for a process in a generic part (a behaviour module) and a specific part (a callback module).</italic><br />
+A typical example is well-known <a href="http://erlang.org/doc/man/gen_server.html"><strong>gen_server</strong></a>.<br />
+<br/></p>
+
+<h2 id="python-implementation">Python implementation</h2>
+
+<p>One simple generic Python request handler would be</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-weight:bold">class</span> <span style="font-weight:bold">generic</span>:
+
+    <span style="font-weight:bold">def</span> __init__(self, initialize_value):
+        <span style="font-style:italic"># initialize_value can be anything.</span>
+        <span style="font-style:italic"># It depends on specific parts of code.</span>
+        <span style="font-weight:bold">try</span>:
+            <span style="font-style:italic"># Result of do_init callback-function will be our state.</span>
+            <span style="font-style:italic"># It can be anything and depends on specific parts of code.</span>
+            self.state = self.do_init(initialize_value)
+        <span style="font-weight:bold">except</span> <span style="font-weight:bold">Exception</span> <span style="font-weight:bold">as</span> error:
+            self.terminate(error)
+
+    <span style="font-weight:bold">def</span> handle_request(self, request):
+        <span style="font-weight:bold">try</span>:
+            result = self.do_handle_request(request, self.state)
+        <span style="font-weight:bold">except</span> <span style="font-weight:bold">Exception</span> <span style="font-weight:bold">as</span> error:
+            self.terminate(error)
+        <span style="font-style:italic"># do_handle_request callback-function should yield response and new state. </span>
+        (response, self.state) = result
+        <span style="font-weight:bold">return</span> response
+
+    <span style="font-weight:bold">def</span> handle_other(self, other):
+        <span style="font-weight:bold">try</span>:
+            <span style="font-style:italic"># To handle any request that does not need response</span>
+            self.state = self.do_handle_other(other, self.state)
+        <span style="font-weight:bold">except</span> <span style="font-weight:bold">Exception</span> <span style="font-weight:bold">as</span> error:
+            self.terminate(error)
+
+    <span style="font-weight:bold">def</span> terminate(self, reason):
+        <span style="font-style:italic"># Let specific parts of code clean things.</span>
+        <span style="font-style:italic"># For example close their files, etc.</span>
+        self.do_terminate(reason, self.state)
+        <span style="font-weight:bold">if</span> reason <span style="font-weight:bold">is</span> None:
+            <span style="font-weight:bold">return</span>
+        <span style="font-weight:bold">raise</span> reason</code></pre></div>
+
+<p>And for example I write a <code>counter</code> class on top of that.</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-weight:bold">class</span> <span style="font-weight:bold">counter</span>(generic):
+
+    <span style="font-weight:bold">def</span> do_init(self, value):
+        <span style="font-weight:bold">print</span>(<span style="font-style:italic">&#34;started counter with value {}&#34;</span>.format(value))
+        <span style="font-style:italic"># This will be our `self.state` in above example</span>
+        <span style="font-weight:bold">return</span> value
+
+    <span style="font-weight:bold">def</span> do_handle_request(self, request, value):
+        <span style="font-weight:bold">if</span> request == <span style="font-style:italic">&#34;+&#34;</span>:
+            value += 1
+        <span style="font-weight:bold">elif</span> request == <span style="font-style:italic">&#34;-&#34;</span>:
+            value -= 1
+        <span style="font-weight:bold">else</span>:
+            <span style="font-weight:bold">raise</span> <span style="font-weight:bold">NotImplementedError</span>(<span style="font-style:italic">&#34;unknown request {}&#34;</span>.format(request))
+        <span style="font-weight:bold">return</span> (value, value) <span style="font-style:italic"># return (response, new_state)</span>
+
+    <span style="font-weight:bold">def</span> do_handle_other(self, other, value):
+        <span style="font-weight:bold">if</span> other == <span style="font-style:italic">&#39;print&#39;</span>:
+            <span style="font-weight:bold">print</span>(value)
+        <span style="font-weight:bold">else</span>:
+            <span style="font-weight:bold">raise</span> <span style="font-weight:bold">NotImplementedError</span>(<span style="font-style:italic">&#34;unknown {}&#34;</span>.format(other))
+        <span style="font-weight:bold">return</span> value <span style="font-style:italic"># return new_state</span>
+
+    <span style="font-weight:bold">def</span> do_terminate(self, reason, value):
+        <span style="font-weight:bold">print</span>(<span style="font-style:italic">&#34;terminating with reason {}, count is {}&#34;</span>.format(str(reason), value))</code></pre></div>
+
+<p>We&rsquo;re done! I saved above classes in a file named <code>request_handler.py</code>. Let&rsquo;s test it in Python interpreter.</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&gt;&gt;&gt; from request_handler import counter
+
+&gt;&gt;&gt; c = counter(10)
+started counter with value 10
+
+&gt;&gt;&gt; c.handle_request(&#34;+&#34;)
+11
+
+&gt;&gt;&gt; c.handle_request(&#34;+&#34;)
+12
+
+&gt;&gt;&gt; c.handle_request(&#34;-&#34;)
+11
+
+&gt;&gt;&gt; result = c.handle_request(&#34;-&#34;) # It has a return value
+&gt;&gt;&gt; result
+10
+
+&gt;&gt;&gt; result = c.handle_other(&#34;print&#34;) # No return value
+10
+&gt;&gt;&gt; result
+
+&gt;&gt;&gt; c.handle_other(&#34;print&#34;)
+10
+
+&gt;&gt;&gt; c.handle_request(&#34;Oops&#34;)
+terminating with reason unknown request Oops, count is 10
+Traceback (most recent call last):
+  File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;
+  File &#34;/projects/codefather.org/generic.py&#34;, line 18, in handle_request
+    self.terminate(error)
+  File &#34;/projects/codefather.org/generic.py&#34;, line 36, in terminate
+    raise reason
+  File &#34;/projects/codefather.org/generic.py&#34;, line 16, in handle_request
+    result = self.do_handle_request(request, self.state)
+  File &#34;/projects/codefather.org/generic.py&#34;, line 52, in do_handle_request
+    raise NotImplementedError(&#34;unknown request {}&#34;.format(request))
+NotImplementedError: unknown request Oops</code></pre></div>
+
+<p>Now let&rsquo;s separate them in two files and try to implement them more like how Erlang/OTP implements them. For generic parts of code we have</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-style:italic"># generic.py</span>
+
+<span style="font-weight:bold">class</span> <span style="font-weight:bold">generic</span>:
+
+    <span style="font-weight:bold">def</span> __init__(self, module, initialize_value):
+        self.module = module
+        <span style="font-weight:bold">try</span>:
+            self.state = module.init(initialize_value)
+        <span style="font-weight:bold">except</span> <span style="font-weight:bold">Exception</span> <span style="font-weight:bold">as</span> error:
+            self.terminate(error)
+
+    <span style="font-weight:bold">def</span> handle_request(self, request):
+        <span style="font-weight:bold">try</span>:
+            result = self.module.handle_request(request, self.state)
+        <span style="font-weight:bold">except</span> <span style="font-weight:bold">Exception</span> <span style="font-weight:bold">as</span> error:
+            self.terminate(error)
+        (response, self.state) = result
+        <span style="font-weight:bold">return</span> response
+
+    <span style="font-weight:bold">def</span> handle_other(self, other):
+        <span style="font-weight:bold">try</span>:
+            self.state = self.module.handle_other(other, self.state)
+        <span style="font-weight:bold">except</span> <span style="font-weight:bold">Exception</span> <span style="font-weight:bold">as</span> error:
+            self.terminate(error)
+
+    <span style="font-weight:bold">def</span> terminate(self, reason):
+        self.module.terminate(reason, self.state)
+        <span style="font-weight:bold">if</span> reason <span style="font-weight:bold">is</span> None:
+            <span style="font-weight:bold">return</span>
+        <span style="font-weight:bold">raise</span> reason</code></pre></div>
+
+<p>And for specific parts of code we have</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-style:italic"># counter.py</span>
+
+<span style="font-weight:bold">def</span> init(value):
+    <span style="font-weight:bold">print</span>(<span style="font-style:italic">&#34;started counter with value {}&#34;</span>.format(value))
+    <span style="font-weight:bold">return</span> value
+
+<span style="font-weight:bold">def</span> handle_request(request, value):
+    <span style="font-weight:bold">if</span> request == <span style="font-style:italic">&#34;+&#34;</span>:
+        value += 1
+    <span style="font-weight:bold">elif</span> request == <span style="font-style:italic">&#34;-&#34;</span>:
+        value -= 1
+    <span style="font-weight:bold">else</span>:
+        <span style="font-weight:bold">raise</span> <span style="font-weight:bold">NotImplementedError</span>(<span style="font-style:italic">&#34;unknown request {}&#34;</span>.format(request))
+    <span style="font-weight:bold">return</span> (value, value)
+
+<span style="font-weight:bold">def</span> handle_other(other, value):
+    <span style="font-weight:bold">if</span> other == <span style="font-style:italic">&#39;print&#39;</span>:
+        <span style="font-weight:bold">print</span>(value)
+    <span style="font-weight:bold">else</span>:
+        <span style="font-weight:bold">raise</span> <span style="font-weight:bold">NotImplementedError</span>(<span style="font-style:italic">&#34;unknown {}&#34;</span>.format(other))
+    <span style="font-weight:bold">return</span> value
+
+<span style="font-weight:bold">def</span> terminate(reason, value):
+    <span style="font-weight:bold">print</span>(<span style="font-style:italic">&#34;terminating with reason {}, count is {}&#34;</span>.format(str(reason), value))</code></pre></div>
+
+<p>Let&rsquo;s test them together.</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&gt;&gt;&gt; from generic import generic
+&gt;&gt;&gt; import counter
+
+&gt;&gt;&gt; c = generic(counter, 10)
+started counter with value 10
+
+&gt;&gt;&gt; c.handle_request(&#34;+&#34;)
+11
+
+&gt;&gt;&gt; c.handle_request(&#34;+&#34;)
+12
+...</code></pre></div>
+
+<p>That&rsquo;s how Erlangers manage <a href="https://en.wikipedia.org/wiki/Cohesion_(computer_science)"><strong>Cohesion</strong></a> and <a href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)"><strong>Coupling</strong></a> in their code.<br />
+We don&rsquo;t see message passing and multi-threading in above examples; But in Erlang every request is an Erlang message that one process (called <code>client process</code>) sends to other process (called <code>server process</code>) and every response is a message that <code>servers process</code> sends to <code>client process</code>.<br />
+Erlang/OTP behaviors handle many things that we did not handle in above. For example:<br />
+_ How much time you want to wait for a <code>server process</code> to initilize its state?<br />
+_ Specific part of code has the ability to being started or raising error or ignore starting.<br />
+_ Specific parts of code have the ability to tell generic parts of code wait for incomming messages for a fixed time.<br />
+_ Advanced tracing for incomming/outgoing messages and changing state.<br />
+_ Code hot-reloading while internal state has changed in new code.<br />
+And many more.</p>
+
+<p>Since Erlang/OTP behaviors (<a href="http://erlang.org/doc/man/gen_server.html"><strong>gen_server</strong></a>, <a href="http://erlang.org/doc/man/gen_event.html"><strong>gen_event</strong></a>, etc) are maintained for years they are stable and efficient enough to rely on; Always try to use them and if and only if you need to implement your own behavior, I highly recommend to read their code and understand them correctly.</p>
+
+  </div>
+
+  <div id=links>
+    
+    
+  </div>
+</section>
+
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-142568701-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+  <p style="font-size: 14px; color:#696969; text-align: center;">2019 © Pouriya Jahanbakhsh ⦁ This website is <b><a href="https://github.com/pouriya-jahanbakhsh/codefather.org" target="_blank" style="color:#2666C1">open source</a></b></p>
+</body>
+
+</html>
+
+
+

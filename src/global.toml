@@ -1,0 +1,7 @@
+title               = "Pouriya"
+author              = "Pouriya"
+googleAnalytics     = "UA-142568701-1"
+canonifyurls        = true
+theme               = "black-and-light"
+pygmentsstyle       = "bw"
+pygmentscodefences  = true

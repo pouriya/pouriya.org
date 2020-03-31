@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://pouriya.org/en/posts/erlang-behaviors-in-python/</loc>
+    <lastmod>2019-11-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pouriya.org/en/about/</loc>
+    <lastmod>2019-01-01T00:00:00+03:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pouriya.org/en/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pouriya.org/en/</loc>
+    <lastmod>2019-11-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pouriya.org/en/contributions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pouriya.org/en/oss/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pouriya.org/en/posts/</loc>
+    <lastmod>2019-11-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pouriya.org/en/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

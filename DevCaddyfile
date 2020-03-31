@@ -1,0 +1,19 @@
+http://localhost:80/ {
+	redir http://localhost:80/fa{uri}
+}
+
+http://localhost:80/fa {
+        timeouts {
+                idle 30s
+        }
+        log / stdout
+	root {$DEST_DIR}/fa
+}
+
+http://localhost:80/en {
+        timeouts {
+                idle 30s
+        }
+        log / stdout
+        root {$DEST_DIR}/en
+}

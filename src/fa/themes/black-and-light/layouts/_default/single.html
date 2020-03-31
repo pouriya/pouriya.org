@@ -1,0 +1,30 @@
+{{ partial "header.html" . }}
+
+<section id=content>
+  <h1>{{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}</h1>
+
+  {{ if .Params.date }}
+    <div id=sub-header>
+      {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} ⦁ همش {{ .ReadingTime }} دیقه خوندنش وقت میگیره
+    </div>
+  {{ end }}
+
+  <div class="entry-content">
+    {{ .Content }}
+  </div>
+
+  <div style="text-align: left;" id=links>
+    {{ if .PrevInSection }}
+      <a class="basic-alignment left" href="{{.PrevInSection.Permalink}}">&laquo; {{.PrevInSection.Title}}</a>
+    {{ end }}
+    {{ if .NextInSection }}
+      <a class="basic-alignment left" href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}} &raquo;</a>
+    {{ end }}
+  </div>
+</section>
+{{ if .Params.twitter  }}
+  <p style="text-align:center">اگر پیشنهاد یا انتقادی دارید از <a href="{{ .Params.twitter }}">این لینک</a> در توییتر استفاده کنید</p>
+{{ end }}
+{{ partial "footer.html" . }}
+
+

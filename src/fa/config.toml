@@ -1,0 +1,21 @@
+languageCode = "fa-IR"
+copyRight = "۲۰۱۹ © پوریا جهانبخش"
+
+[params]
+  sitename = "Pouriya"
+  disableWebFonts = false
+  siteGitURL = "https://github.com/pouriya-jahanbakhsh/pouriya.org"
+  desc = "نوشته های یک برنامه‌نویس معمولی"
+
+
+[[menu.main]]
+    name = "About"
+    url  = "BASEURL/en/about"
+
+[[menu.main]]
+    name = "<en/>"
+    url  = "BASEURL/en"
+
+[[menu.main]]
+    name = "<DONATE/>"
+    url  = "https://idpay.ir/codefather"
