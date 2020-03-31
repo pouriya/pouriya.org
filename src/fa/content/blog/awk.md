@@ -1,7 +1,6 @@
 +++
 title = "AWK"
 date  = "2019-24-07T00:57:05"
-twitter = "https://twitter.com/mr_pouriya/status/1153794337097912326"
 +++
 
 
