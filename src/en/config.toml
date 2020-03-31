@@ -6,6 +6,7 @@ copyRight = "2019 © Pouriya Jahanbakhsh"
   disableWebFonts = false
   siteGitURL = "https://github.com/pouriya-jahanbakhsh/pouriya.org"
   desc = "A person who writes computer code"
+  comments = true
 
 [[menu.main]]
     name = "About"

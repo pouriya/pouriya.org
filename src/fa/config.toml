@@ -6,6 +6,7 @@ copyRight = "۲۰۱۹ © پوریا جهانبخش"
   disableWebFonts = false
   siteGitURL = "https://github.com/pouriya-jahanbakhsh/pouriya.org"
   desc = "نوشته های یک برنامه‌نویس معمولی"
+  comments = true
 
 
 [[menu.main]]
