@@ -67,7 +67,7 @@ class About:
         return "+989195458500"
 
     def github(self):
-        return "https://github.com/pouriya-jahanbakhsh"
+        return "https://github.com/pouriya"
 
 	def linkedin(self):
 		return "https://www.linkedin.com/in/pouriya-jahanbakhsh"
@@ -81,31 +81,31 @@ class About:
 # Open Source projects
 I do love coding things and especially building OSS (Open-Source Software).<br/><br/><br/>
 
-### <a href="https://github.com/emeter" target="_blank" style="color:#204A87">EMeter </a><iframe src="https://ghbtns.com/github-btn.html?user=emeter&repo=emeter&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+### <a href="https://github.com/pouriya/emeter" target="_blank" style="color:#204A87">EMeter </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya&repo=emeter&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 Fast and pluginable monitoring tool for Erlang ecosystem. <br/><br/><br/>
 
-### <a href="https://github.com/pouriya-jahanbakhsh/director" target="_blank" style="color:#204A87">director </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya-jahanbakhsh&repo=director&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+### <a href="https://github.com/pouriya/director" target="_blank" style="color:#204A87">director </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya&repo=director&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 Director is a production-ready supervisor and manager for Erlang/Elixir processes that focuses on speed, performance and flexibility.<br/><br/><br/>
 
-### <a href="https://github.com/pouriya-jahanbakhsh/tir" target="_blank" style="color:#204A87">tir </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya-jahanbakhsh&repo=tir&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+### <a href="https://github.com/pouriya/tir" target="_blank" style="color:#204A87">tir </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya&repo=tir&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 Have time.ir in shell!<br/><br/><br/>
 
-### <a href="https://github.com/pouriya-jahanbakhsh/sockerl" target="_blank" style="color:#204A87">sockerl </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya-jahanbakhsh&repo=sockerl&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+### <a href="https://github.com/pouriya/sockerl" target="_blank" style="color:#204A87">sockerl </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya&repo=sockerl&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 Sockerl is an Erlang/Elixir socket framework for TCP protocols and provides fast, useful and easy-to-use API for implementing servers, clients and client connection pools.<br/><br/><br/>
 
-### <a href="https://github.com/pouriya-jahanbakhsh/pipeline" target="_blank" style="color:#204A87">pipeline </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya-jahanbakhsh&repo=pipeline&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+### <a href="https://github.com/pouriya/pipeline" target="_blank" style="color:#204A87">pipeline </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya&repo=pipeline&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 Use -- operatior for function call chaining in Erlang.<br/><br/><br/>
 
-### <a href="https://github.com/pouriya-jahanbakhsh/estuff" target="_blank" style="color:#204A87">estuff </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya-jahanbakhsh&repo=estuff&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+### <a href="https://github.com/pouriya/estuff" target="_blank" style="color:#204A87">estuff </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya&repo=estuff&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 An Erlang rebar3 template for making new Erlang/OTP project.<br/><br/><br/>
 
-### <a href="https://github.com/pouriya-jahanbakhsh/posthaste" target="_blank" style="color:#204A87">posthaste </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya-jahanbakhsh&repo=posthaste&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+### <a href="https://github.com/pouriya/posthaste" target="_blank" style="color:#204A87">posthaste </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya&repo=posthaste&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 Blazingly fast Erlang/Elixir hooking library. <br/><br/><br/>
 
-### <a href="https://github.com/pouriya-jahanbakhsh/gen_fw" target="_blank" style="color:#204A87">gen_fw </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya-jahanbakhsh&repo=gen_fw&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+### <a href="https://github.com/pouriya/gen_fw" target="_blank" style="color:#204A87">gen_fw </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya&repo=gen_fw&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 Erlang/Elixir Generic firewall process. <br/><br/><br/>
 
-### <a href="https://github.com/pouriya-jahanbakhsh/pcommit" target="_blank" style="color:#204A87">pcommit </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya-jahanbakhsh&repo=pcommit&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+### <a href="https://github.com/pouriya/pcommit" target="_blank" style="color:#204A87">pcommit </a><iframe src="https://ghbtns.com/github-btn.html?user=pouriya&repo=pcommit&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 Python script that handles my Git commit messages.
 
 <br/><br/>
@@ -130,25 +130,15 @@ I added a complete Erlang example. [**Link to Pull-Request**](https://github.com
 <br/>
 
 
-### [InfluxDB client line encoder](https://docs.influxdata.com/influxdb/v1.7/tools/api_client_libraries/#erlang)
-[**Link to Repository**](https://github.com/emeter/influxdb_encoderl)
-<br/>
-<br/>
-
-
-### [OpenTSDB telnet encoder](http://opentsdb.net/docs/build/html/api_telnet/put.html)
-[**Link to Repository**](https://github.com/emeter/opentsdb_encoderl)
-<br/>
-<br/>
-
-
-### [Graphite line encoder](https://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol)
-[**Link to Repository**](https://github.com/emeter/graphite_encoderl)
+### Client encoder for [InfluxDB](https://docs.influxdata.com/influxdb/v1.7/tools/api_client_libraries/#erlang) & [OpenTSDB](http://opentsdb.net/docs/build/html/api_telnet/put.html) & [Graphite](https://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol)
+[**InfluxDB Repository**](https://github.com/pouriya/influxdb_encoderl)  
+[**OpenTSDB Repository**](https://github.com/pouriya/opentsdb_encoderl)  
+[**Graphite Repository**](https://github.com/pouriya/graphite_encoderl)
 <br/>
 <br/>
 
 
 ### [ejabberdctl bash completion](https://docs.ejabberd.im/admin/ejabberdctl/)
-[**Link to Repository**](https://github.com/Pouriya-Jahanbakhsh/ejabberdctl_bash_completion)
+[**Link to Repository**](https://github.com/pouriya/ejabberdctl_bash_completion)
 <br/>
 <br/>
