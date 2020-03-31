@@ -10,13 +10,9 @@ copyRight = "۲۰۱۹ © پوریا جهانبخش"
 
 
 [[menu.main]]
-    name = "About"
+    name = "<about/>"
     url  = "BASEURL/en/about"
 
 [[menu.main]]
     name = "<en/>"
     url  = "BASEURL/en"
-
-[[menu.main]]
-    name = "<DONATE/>"
-    url  = "https://idpay.ir/codefather"

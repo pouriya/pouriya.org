@@ -9,12 +9,8 @@ copyRight = "2019 © Pouriya Jahanbakhsh"
   comments = true
 
 [[menu.main]]
-    name = "About"
+    name = "<about/>"
     url  = "/about"
-
-[[menu.main]]
-    name = "DONATE"
-    url  = "https://idpay.ir/codefather"
 
 [[menu.main]]
     name = "<fa/>"
