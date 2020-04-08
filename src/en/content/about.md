@@ -75,6 +75,10 @@ class About:
 	def twitter(self):
 		return "https://twitter.com/mr_pouriya"
 
+	def donate(self):
+		print("Thanks!")
+		return "https://idpay.ir/jahanbakhsh"
+
 {{< / highlight >}}
 
 <br/>
