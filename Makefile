@@ -9,11 +9,11 @@ HUGO_TMP_CONFIG_FA    = $(TMP_DIR)/fa.toml
 HUGO_TMP_CONFIG_EN    = $(TMP_DIR)/en.toml
 
 
-.PHONY: build fa en build-dev clean serve serve-it clean-fa clean-en ensure-dest-dirs
+.PHONY: build fa en build-dev clean dist-clean serve serve-it clean-fa clean-en ensure-dest-dirs
 
 
 build: fa en
-	cp Caddyfile $(DEST_DIR)
+	cat Caddyfile >> $(DEST_DIR)/Caddyfile
 
 
 fa: ensure-dest-dirs clean-fa make-fa-config
@@ -43,9 +43,13 @@ build-dev:
 
 clean: clean-fa clean-en
 	@echo Cleaning destination directories
-	rm -rf $(DEST_DIR)
 	rm -rf $(WWW_DIR)
 	rm -rf $(TMP_DIR)
+
+
+dist-clean: clean
+	rm -rf $(DEST_DIR)
+	rm -rf $(DEST_DIR)/Caddyfile
 
 
 serve: build-dev serve-it
