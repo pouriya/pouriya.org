@@ -14,6 +14,7 @@ HUGO_TMP_CONFIG_EN    = $(TMP_DIR)/en.toml
 
 build: fa en
 	cat Caddyfile >> $(DEST_DIR)/Caddyfile
+	cat Caddy.env >> $(DEST_DIR)/Caddy.env
 
 
 fa: ensure-dest-dirs clean-fa make-fa-config
