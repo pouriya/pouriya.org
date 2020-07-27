@@ -4,7 +4,7 @@ copyRight = "۲۰۱۹ © پوریا جهانبخش"
 [params]
   sitename = "Pouriya"
   disableWebFonts = false
-  siteGitURL = "https://github.com/pouriya-jahanbakhsh/pouriya.org"
+  siteGitURL = "https://github.com/pouriya/psite"
   desc = "نوشته های یک برنامه‌نویس معمولی"
   comments = true
 

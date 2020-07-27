@@ -1,8 +1,8 @@
 HUGO_RECOMMENDED_OPTS = --gc --verbose
 HUGO_OPTS             =
-DEST_DIR              = $(CURDIR)/pouriya.org
+DEST_DIR              = $(CURDIR)/pouriya.net
 WWW_DIR               = $(DEST_DIR)/www
-BASE_URL              = https://pouriya.org
+BASE_URL              = https://pouriya.net
 HUGO_GLOBAL_CONFIG    = $(CURDIR)/src/global.toml
 TMP_DIR               = $(CURDIR)/tmp
 HUGO_TMP_CONFIG_FA    = $(TMP_DIR)/fa.toml

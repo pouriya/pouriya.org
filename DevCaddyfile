@@ -4,11 +4,11 @@ http://localhost:80/ {
 }
 
 http://localhost:80/fa {
-        log / stdout
+	log / stdout
 	root {$CADDY_POURIYA_ROOT_DIR}/fa
 }
 
 http://localhost:80/en {
-        log / stdout
-        root {$CADDY_POURIYA_ROOT_DIR}/en
+	log / stdout
+	root {$CADDY_POURIYA_ROOT_DIR}/en
 }

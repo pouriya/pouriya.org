@@ -1,7 +1,7 @@
 ################################################################################
-# pouriya.org:
+# pouriya.net:
 
-https://pouriya.org/fa {
+https://pouriya.net/fa {
 	tls {$CADDY_POURIYA_CERT_FULLCHAIN} {$CADDY_POURIYA_PRIVKEY}
 	root {$CADDY_POURIYA_ROOT_DIR}/fa
 	log / "{$CADDY_POURIYA_LOG_FA}" "{proto} {remote} {method} {path} {>User-Agent}" {
@@ -12,7 +12,7 @@ https://pouriya.org/fa {
 	}
 }
 
-https://pouriya.org/en {
+https://pouriya.net/en {
 	tls {$CADDY_POURIYA_CERT_FULLCHAIN} {$CADDY_POURIYA_PRIVKEY}                  
 	root {$CADDY_POURIYA_ROOT_DIR}/en
 	log / "{$CADDY_POURIYA_LOG_EN}" "{proto} {remote} {method} {path} {>User-Agent}" {
@@ -24,12 +24,11 @@ https://pouriya.org/en {
 }
 
 
-https://pouriya.org {
+https://pouriya.net {
         tls {$CADDY_POURIYA_CERT_FULLCHAIN} {$CADDY_POURIYA_PRIVKEY}
-        redir https://pouriya.org/fa{uri}
+        redir https://pouriya.net/fa{uri}
 }
 
-http://pouriya.org {
+http://pouriya.net {
   redir https://{host}{uri}
 }
-

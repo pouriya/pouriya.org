@@ -33,7 +33,7 @@ filter-branch        relink
 
 در این پست قراره یه کوچولو یاد بگیریم چطور در bash این اتفاق میفته و یه کوچولو هم یاد میگیریم چطور برای برنامه های خودمون bash completion بنویسیم.
 
-![let's go](/blog/images/pouriya.org-bash-completion-01.jpeg)
+![let's go](/blog/images/pouriya.net-bash-completion-01.jpeg)
 
 خوب اول یه برنامه نیاز داریم. یه اسکریپت ساده شل مینویسیم که هر چی به عنوان پارامتر بهش میدیم رو بهمون نشون میده.
 
@@ -59,7 +59,7 @@ a b c -f -foo hello world
 
 مصدوم آمادست.
 
-![woohoo](/blog/images/pouriya.org-bash-completion-02.jpeg)
+![woohoo](/blog/images/pouriya.net-bash-completion-02.jpeg)
 
 خوب bash چطوری میفهمه من برای این برنامم به چه پارامتر هایی نیاز دارم؟ کافیه به دایرکتوری زیر یه نگاهی بندازید. مثلا روی سیستم من (لینوکس مینت) اینا بود:
 
@@ -112,7 +112,7 @@ oops
 {{< /highlight >}}
 
 
-![oops](/blog/images/pouriya.org-bash-completion-03.png)
+![oops](/blog/images/pouriya.net-bash-completion-03.png)
 البته این oops پیشنهاد نیست و فقط نشون میده با هر بار زدن TAB تابع ما اجرا میشه. در واقع bash در آخر یه نگاه به آرایه ای به نام COMPREPLY میندازه و پیشنهادات رو از تو اون برمیداره بهمون نشون میده. برای مثال من تابع رو تغییر میدم و سه کلمه foo، bar و baz رو برای پیشنهاد در آرایه COMPREPLY میذارم.
 
 {{< highlight sh >}}
